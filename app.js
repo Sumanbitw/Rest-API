@@ -4,6 +4,7 @@ const cors = require("cors")
 const productRoute = require("./router/router.product")
 require("dotenv/config")
 const mongoose = require("mongoose")
+const port = process.env.PORT || 3000
 
 app.use(cors())
 app.use(express.json())
@@ -21,4 +22,4 @@ mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser:true, useUnifiedTopo
 })
 app.use("/product", productRoute)
 
-app.listen(3000)
+app.listen(port)

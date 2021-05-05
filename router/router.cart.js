@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get("/", async ( req,res ) => {
     try {
-        const cart = await cartModels.findOne({user:req.user._id});
+        const cart = await cartModels.findOne({user:req.body.user});
         res.json(cart)
     } catch ( err ) {
         res.json({ message : err })
@@ -14,13 +14,13 @@ router.get("/", async ( req,res ) => {
 router.post("/", async (req,res) => {
     try {
         const savedCart = await cartModels.findOneAndUpdate(
-            { user:req.user._id },
+            { user:req.body.user },
             { itemsInCart:req.body.itemsInCart },
             null,
             async function ( err , result ) {
                 if(!result) {
                     const cart = new cartModels({
-                        user:req.user._id,
+                        user:req.body.user,
                         itemsInCart:req.body.itemsInCart,
                     })
                     try {

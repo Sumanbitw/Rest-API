@@ -14,6 +14,7 @@ app.use(express.urlencoded({
 
 const productRoute = require("./router/router.product")
 const cartRoute = require("./router/router.cart")
+const wishlistRoute = require("./router/router.wishlist")
 
 app.get("/",(req,res) => {
     res.send("hello express")
@@ -24,5 +25,6 @@ mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser:true, useUnifiedTopo
 })
 app.use("/product", productRoute)
 app.use("/cart",cartRoute)
+app.use("/wishlist",wishlistRoute)
 
 app.listen(port)

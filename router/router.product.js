@@ -41,7 +41,7 @@ router.get("/:productId", async (req,res) => {
 })
 router.patch("/:productId", async (req,res) => {
     try{
-        const updatedProduct = await productModels.updateOne({ _id : req.params.productId }, {$set : {inStock:req.body.inStock}})
+        const updatedProduct = await productModels.updateOne({ _id : req.params.productId }, {$set : {category:req.body.category}})
         res.json( updatedProduct )
     } catch ( err ) {
         res.json({ message : err})

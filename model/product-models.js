@@ -35,8 +35,8 @@ const ProductSchema = mongoose.Schema ({
     },
     fastDelivery : {
         type : Boolean,
-        requoired : true
+        required : true
     }
 })
 
-module.exports = mongoose.model("Posts", ProductSchema)
+module.exports = mongoose.model("posts", ProductSchema)

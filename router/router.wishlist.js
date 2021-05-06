@@ -11,6 +11,7 @@ router.get("/", async ( req,res ) => {
     }  
 })
 
+//post
 router.post("/", async (req,res) => {
     try {
         const savedWishlist = await wishlistModels.findOneAndUpdate(

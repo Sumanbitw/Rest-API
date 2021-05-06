@@ -11,6 +11,7 @@ router.get("/", async ( req,res ) => {
     }  
 })
 
+//post
 router.post("/", async ( req,res ) => {
     console.log( req.body )
     const product = new productModels({
